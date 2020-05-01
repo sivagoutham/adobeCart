@@ -65,8 +65,14 @@ class ShoppingList extends Component{
 }
 
 const mapStateToProps = (state)=>{
-    return {
-        items:state.initialData.items
+    if(state.searchItems.items){
+        return {
+        items:state.searchItems.items
+        }
+    }else{
+        return {
+         items:state.initialData.items
+        }
     }
 }
 

@@ -1,11 +1,25 @@
 import React,{Component} from "react";
 import './cart.css';
-import { connect } from 'react-redux'
-import data from '../..//cart.json';
+import { connect } from 'react-redux';
+import { removeItem,addQuantity,subtractQuantity } from '../actions/cartActions'
 
-const shoppingList = data.items;
+
 
 class Cart extends Component{
+
+    
+    handleRemove = (name)=>{
+        this.props.removeItem(name);
+    }
+    
+
+    handleAddQuantity = (name)=>{
+        this.props.addQuantity(name);
+    }
+
+    handleSubtractQuantity = (name)=>{
+        this.props.subtractQuantity(name);
+    }
 
     render(){
         let addedItems = this.props.items.length ?
@@ -24,14 +38,14 @@ class Cart extends Component{
                                     </div>
                                     <div className='IncrementContainer'>
                                         <div className='flexContainer'>
-                                            <button className='btnMinus'>-</button>
+                                            <button className='btnMinus' onClick={()=>{this.handleSubtractQuantity(item.name)}}>-</button>
                                             <div className='inputBox'>
-                                                <input type="text" value="1" className="inputText"/>
+                                                <input type="text" value={item.quantity} className="inputText"/>
                                             </div>
-                                            <button className='btnPlus'>+</button>
+                                            <button className='btnPlus' onClick={()=>{this.handleAddQuantity(item.name)}}>+</button>
                                         </div>
                                     </div>
-                                    <div className="removeBtn">Remove</div>
+                                    <div className="removeBtn" onClick={()=>{this.handleRemove(item.name)}}>Remove</div>
 
                             </div>
                         )
@@ -80,5 +94,18 @@ const mapStateToProps = (state)=>{
         finalBill:state.finalBill
     }
 }
+const mapDispatchToProps =(dispatch)=>{
+    return {
+        removeItem :(name)=>{
+            dispatch(removeItem(name))
+        },
+        subtractQuantity :(name)=>{
+            dispatch(subtractQuantity(name))
+        },
+        addQuantity :(name)=>{
+            dispatch(addQuantity(name))
+        }
+    }
+}
 
-export default connect(mapStateToProps)(Cart)
+export default connect(mapStateToProps,mapDispatchToProps)(Cart)
