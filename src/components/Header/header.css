@@ -1,0 +1,67 @@
+.header{
+    position: fixed;
+    display: flex;
+    flex: auto;
+    width: 100%;
+    height: 50px;
+    background-color: #2874f0;
+    z-index: 10;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.starIcon{
+    padding: 10px;
+    font-size: 35px;
+    color: #ffd615;
+    cursor: pointer;
+}
+.searchIcon{
+    position: absolute;
+    right: 60px;
+    font-size: 25px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.cartIcon{
+    position: absolute;
+    right: 14px;
+    font-size: 25px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.count{
+    position: absolute;
+    right: 16px;
+    top: 6px;
+    text-align: center;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    background-color: #ff6161;
+    font-weight: 400;
+    color: #f0f0f0;
+    line-height: 14px;
+    font-size: 12px;
+}
+::placeholder { 
+  color: white;
+  opacity: 1; 
+}
+.togglesearch{
+    position: absolute;
+    right: 60px;
+    padding: 12px;
+    color: white;
+}
+.InputSearch{
+    width: 300px;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid white;
+    height: 25px;
+    outline: none;
+    color : white;
+}

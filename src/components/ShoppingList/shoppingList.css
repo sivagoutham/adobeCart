@@ -1,0 +1,38 @@
+.firstSection{
+    padding: 20px;
+}
+.imgSection{
+    height: 150px;
+    width: 175px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.column {
+  float: left;
+  width: auto;
+  padding: 10px;
+}
+.priceList{
+        display: flex;
+    flex-flow: row;
+}
+.price{
+    font-size: 14px;
+    padding: 8px 10px 4px 0;
+}
+.priceDisplay{
+    color: gray;
+}
+.priceDiscount{
+    color:#228B22
+}
+.btnCart{
+   background-color: #eac100 !important;
+    color: black !important;
+    font-weight: 600; 
+    margin-left: 25px !important;
+    margin-top: 0px !important;
+}
