@@ -1,5 +1,5 @@
 import data from '../../cart.json';
-import {ADD_TO_CART,SUBTRACT_QUANTITY,REMOVE_ITEM,ADD_QUANTITY,SEARCH_ITEM} from '../actions/action-types/cart-actions'
+import {ADD_TO_CART,SUBTRACT_QUANTITY,REMOVE_ITEM,ADD_QUANTITY,SEARCH_ITEM,Filter_ITEM} from '../actions/action-types/cart-actions'
 
 const initialData = Object.assign(data)
 const initState={
@@ -8,7 +8,8 @@ const initState={
     total:0,
     discount:0,
     finalBill:0,
-    searchItems:[] };
+    searchItems:[],
+    filterItems : [],};
 
 
 const cartReducer = (state = initState,action)=>{
@@ -105,6 +106,13 @@ const cartReducer = (state = initState,action)=>{
         return{
             ...state,
             searchItems: {items:items}
+        }
+    }
+    if(action.type === Filter_ITEM){
+        let items = state.initialData.items.filter(val=>val.price.actual>action.min)
+        return{
+            ...state,
+            filterItems: {items:items}
         }
     }
     

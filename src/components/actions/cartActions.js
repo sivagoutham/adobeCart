@@ -1,4 +1,4 @@
-import {ADD_TO_CART,SUBTRACT_QUANTITY,REMOVE_ITEM,ADD_QUANTITY,SEARCH_ITEM} from '../actions/action-types/cart-actions'
+import {ADD_TO_CART,SUBTRACT_QUANTITY,REMOVE_ITEM,ADD_QUANTITY,SEARCH_ITEM,Filter_ITEM} from '../actions/action-types/cart-actions'
 
 export const addToCart =(name)=>{
     return {
@@ -28,5 +28,12 @@ export const searchitem = (name)=>{
     return{
         type: SEARCH_ITEM,
         name
+    }
+}
+
+export const filterItem = (min)=>{
+    return{
+        type: Filter_ITEM,
+        min
     }
 }

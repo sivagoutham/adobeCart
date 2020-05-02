@@ -69,6 +69,10 @@ const mapStateToProps = (state)=>{
         return {
         items:state.searchItems.items
         }
+    }else if(state.filterItems.items){
+        return {
+        items:state.filterItems.items
+        }
     }else{
         return {
          items:state.initialData.items
